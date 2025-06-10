@@ -49,10 +49,10 @@ struct DetailView: View {
 }
 
 struct ContentView: View {
-    @State private var pathStore = PathStore()
+    @State private var pathStore = NavigationPath()
     
     var body: some View {
-        NavigationStack(path: $pathStore.path) {
+        NavigationStack(path: $pathStore) {
             DetailView(number: 0)
                 .navigationDestination(for: Int.self) { i in
                     DetailView(number: i)
